@@ -15,7 +15,7 @@ const Footers = () =>
                         <Link to='/'>
                             <img
                                 src={logo}
-                                className="mr-3 w-32 h-10 sm:h-9"
+                                className="mr-3 w-32 mb-2 h-10 sm:h-9"
                                 alt="Flowbite Logo"
                             // name="Flowbite"
                             />

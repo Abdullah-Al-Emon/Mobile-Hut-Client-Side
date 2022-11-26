@@ -13,7 +13,7 @@ const Header = () =>
             <Navbar.Brand>
                 <img
                     src={logo}
-                    className="mr-3 w-32 h-10 sm:h-9"
+                    className="mr-3 w-32 h-10 my-2 sm:h-9"
                     alt="Flowbite Logo"
                 />
                 
