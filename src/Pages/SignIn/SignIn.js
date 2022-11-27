@@ -1,38 +1,57 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img1 from '../../assets/image/Banner/img5.jpg'
+import { AuthContext } from '../../Context/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const SignIn = () =>
 {
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const { signIn, googleSignIn } = useContext(AuthContext);
+    const [logInError, setLogInError] = useState('')
+    const [loginUserEmail, setLoginUserEmail] = useState('');
+
+    const [token] = useToken(loginUserEmail)
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
+
+    if(token){
+        navigate(from, { replace: true })
+    }
 
     const handleLogin = data =>
     {
-        // setLogInError('')
-        // signIn(data.email, data.password)
-        //     .then(result =>
-        //     {
-        //         const user = result.user;
-        //         console.log(user)
-        //         setLoginUserEmail(data.email)
-        //     })
-        //     .catch(error =>
-        //     {
-        //         console.error(error)
-        //         setLogInError(error.message)
-        //     })
+        setLogInError('')
+        signIn(data.email, data.password)
+            .then(result =>
+            {
+                const user = result.user;
+                console.log(user)
+                setLoginUserEmail(data.email)
+            })
+            .catch(error =>
+            {
+                console.error(error)
+                setLogInError(error.message)
+            })
     }
 
     const handleGoogleSignIn = () =>
     {
-        // googleSignIn()
-        //     .then(result =>
-        //     {
-        //         const user = result.user;
-        //         console.log(user)
-        //     })
-        //     .catch(err => console.error(err))
+        googleSignIn()
+            .then(result =>
+            {
+                const user = result.user;
+                console.log(user)
+                setLoginUserEmail(user.email)
+            })
+            .catch(err => {
+                setLogInError(err)
+                console.error(err)
+            })
     }
     return (
         <div className='md:h-[650px] h-[550px] flex justify-center items-center'
@@ -64,11 +83,9 @@ const SignIn = () =>
                         {...register("password", {
                             required: "Password is required",
                             minLength: { value: 6, message: 'Password must be 6 characters or longer' },
-                            pattern: { value: /(?=.*[0-9])/, message: 'Password must Number' },
-                            pattern: { value: /(?=.*[A-Z])/, message: 'Password Must One Uppercase' },
                             pattern: { value: /(?=.*[!@#$&*])/, message: 'Password Must One Spacial Character' }
                         })} />
-                    {/* {logInError && <p className='text-red-600'>{logInError}</p>} */}
+                    {logInError && <p className='text-red-600'>{logInError}</p>}
                     {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                 </div>
                 <input className='btn btn-primary w-full' value='Log In' type="submit" />
