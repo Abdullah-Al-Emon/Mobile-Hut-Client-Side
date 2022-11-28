@@ -29,7 +29,7 @@ const ProductCards = ({ product }) =>
             image
         }
 
-        fetch(`http://localhost:5000/booking`, {
+        fetch(`https://mobilehut-server-side.vercel.app/booking`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

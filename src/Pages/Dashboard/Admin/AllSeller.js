@@ -9,7 +9,7 @@ const AllSeller = () =>
 
     const fetchData = () =>
     {
-        axios.get(`http://localhost:5000/users?seller=${'Seller'}`)
+        axios.get(`https://mobilehut-server-side.vercel.app/users?seller=${'Seller'}`)
             .then(res => {
                 setSellers(res.data.allSeller)
             })
@@ -22,7 +22,7 @@ const AllSeller = () =>
     const handleDeleteUser = user =>
     {
         console.log(user._id)
-       fetch(`http://localhost:5000/users/${user._id}`,{
+       fetch(`https://mobilehut-server-side.vercel.app/users/${user._id}`,{
         method: 'DELETE',
         headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -37,7 +37,7 @@ const AllSeller = () =>
     }
 
     const handleVerify = user => {
-        fetch(`http://localhost:5000/users/${user._id}`, {
+        fetch(`https://mobilehut-server-side.vercel.app/users/${user._id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

@@ -13,7 +13,7 @@ const MyProduct = () =>
         queryFn: async () =>
         {
             try {
-                const res = await fetch(`http://localhost:5000/product?email=${user?.email}`, {
+                const res = await fetch(`https://mobilehut-server-side.vercel.app/product?email=${user?.email}`, {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -34,7 +34,7 @@ const MyProduct = () =>
     const handleDeleteProduct = product =>
     {
         // console.log(product._id)
-        fetch(`http://localhost:5000/product/${product._id}`, {
+        fetch(`https://mobilehut-server-side.vercel.app/product/${product._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -68,7 +68,7 @@ const MyProduct = () =>
             yearOfUse: product.yearOfUse,
             posting_id: product._id
         }
-        fetch('http://localhost:5000/advertise',{
+        fetch('https://mobilehut-server-side.vercel.app/advertise',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

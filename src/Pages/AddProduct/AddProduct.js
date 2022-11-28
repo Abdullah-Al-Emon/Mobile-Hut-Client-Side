@@ -44,7 +44,7 @@ const AddProduct = () =>
                 image: imgData.data.url,
                 description: data.description
             }
-            fetch('http://localhost:5000/product',{
+            fetch('https://mobilehut-server-side.vercel.app/product',{
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

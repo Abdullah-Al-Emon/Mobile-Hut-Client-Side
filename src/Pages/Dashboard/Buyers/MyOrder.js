@@ -9,7 +9,7 @@ const MyOrder = () => {
 
     const fetchData = () =>
     {
-        axios.get(`http://localhost:5000/booking?email=${user?.email}`)
+        axios.get(`https://mobilehut-server-side.vercel.app/booking?email=${user?.email}`)
             .then(res => {
                 setOrders(res.data)
             })
