@@ -23,7 +23,6 @@ const MyProduct = () => {
                 console.error(err)
             }
         }
-        
     })
     console.log(myProduct)
 
