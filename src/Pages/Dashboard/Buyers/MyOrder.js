@@ -30,9 +30,8 @@ const MyOrder = () => {
                         <th></th>
                         <th>Avatar</th>
                         <th>Name</th>
-                        <th>option</th>
+                        <th>Price</th>
                         <th>Advertise</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,10 +47,10 @@ const MyOrder = () => {
                                     </div>
                                 </td>
                                 <td>{order.productName} <br />
-                                {order.resalePrice}
+                                
                                 </td>
-                                <td className='text-green-600 font-semibold'>Available</td>
-                                <td><button className='btn btn-xs btn-primary'>Advertise</button></td>
+                                <td className='text-green-600 font-semibold'>{order.resalePrice}</td>
+                                <td><button className='btn btn-xs btn-primary'>Pay</button></td>
                                
                             </tr>
                         )
