@@ -24,7 +24,6 @@ const MyProduct = () => {
             }
         }
     })
-    console.log(myProduct)
 
     return (
         <div>
