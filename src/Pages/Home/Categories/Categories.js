@@ -17,7 +17,7 @@ const Categories = () => {
     return (
         <div className='mt-16 mb-5 mx-4'>
         <div className='text-center my-5'>
-            <h3 className='text-xl font-bold text-blue-700 uppercase'>Our Products</h3>
+            <h3 className='text-xl font-bold text-blue-700 uppercase'>Our Products Category</h3>
             <h2 className='text-4xl font-semibold'>Used Mobile Sell</h2>
         </div>
         <div className='grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>

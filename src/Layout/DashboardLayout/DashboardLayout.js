@@ -29,6 +29,10 @@ const DashboardLayout = () =>
                             <li><Link to='/dashboard/myOrders'>My Orders</Link></li>
                         }
                         {
+                            isBuyer &&
+                            <li><Link to='/dashboard/myWishlist'>My Wishlist</Link></li>
+                        }
+                        {
                             isSeller &&
                             <li><Link to='/dashboard/addProduct'>Add A Product</Link></li>
                         }
