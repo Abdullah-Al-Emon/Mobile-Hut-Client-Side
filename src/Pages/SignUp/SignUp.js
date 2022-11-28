@@ -71,8 +71,8 @@ const SignUp = () =>
             {
                 const user = result.user;
                 console.log(user)
-                saveUser(user.displayName, user.email, 'buyer')
-                setCreatedUserEmail(user.email)
+                saveUser(user.displayName, user.email, 'Buyer')
+                setCreatedUserEmail(user?.email)
             })
             .catch(err => {
                 setSignUpError(err)

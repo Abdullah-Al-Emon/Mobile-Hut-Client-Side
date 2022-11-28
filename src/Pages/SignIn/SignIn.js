@@ -45,8 +45,7 @@ const SignIn = () =>
             .then(result =>
             {
                 const user = result.user;
-                console.log(user)
-                setLoginUserEmail(user.email)
+                setLoginUserEmail(user?.email)
             })
             .catch(err => {
                 setLogInError(err)
