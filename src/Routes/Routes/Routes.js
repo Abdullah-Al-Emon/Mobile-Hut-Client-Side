@@ -90,7 +90,6 @@ export const router = createBrowserRouter([
                 path: '/dashboard/reportedItem',
                 element: <AdminRoute><ReportedItem></ReportedItem></AdminRoute>
             },
-            
         ]
     }
 ])

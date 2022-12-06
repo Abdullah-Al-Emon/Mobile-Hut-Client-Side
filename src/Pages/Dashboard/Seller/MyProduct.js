@@ -26,6 +26,7 @@ const MyProduct = () =>
             }
         }
     })
+    console.log(myProduct)
 
     if (isLoading) {
         return <Loading />
@@ -68,8 +69,8 @@ const MyProduct = () =>
             yearOfUse: product.yearOfUse,
             posting_id: product._id
         }
-        fetch('https://mobilehut-server-side.vercel.app/advertise',{
-            method: 'POST',
+        fetch(`https://mobilehut-server-side.vercel.app/product/${product._id}`,{
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json',
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -78,6 +79,7 @@ const MyProduct = () =>
         })
         .then(res => res.json())
         .then(result => {
+            refetch()
             console.log(result)
             toast.success(`${product.productName} is added advertise successfully`)
         })
@@ -112,8 +114,15 @@ const MyProduct = () =>
                                         </div>
                                     </td>
                                     <td>{product.productName}</td>
-                                    <td className='text-green-600 font-semibold'>Available</td>
-                                    <td><button onClick={() => handleAdvertise(product)} className='btn btn-xs btn-primary'>Advertise</button></td>
+                                    <td className='text-green-600 font-semibold'>
+                                        {
+                                            product.paid === false ?
+                                            <>Available</>
+                                            :
+                                            <>Sold Out</>
+                                        }
+                                    </td>
+                                    <td><button onClick={() => handleAdvertise(product)} disabled={product.advertise === true} className='btn btn-xs btn-primary'>Advertise</button></td>
                                     <td>
                                         <label onClick={() => handleDeleteProduct(product)} className="btn btn-xs btn-error">Delete</label>
                                     </td>

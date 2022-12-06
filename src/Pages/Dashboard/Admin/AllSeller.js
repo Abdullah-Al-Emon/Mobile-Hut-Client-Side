@@ -37,6 +37,7 @@ const AllSeller = () =>
     }
 
     const handleVerify = user => {
+        console.log(user.email)
         fetch(`https://mobilehut-server-side.vercel.app/users/${user._id}`, {
             method: 'PUT',
             headers: {

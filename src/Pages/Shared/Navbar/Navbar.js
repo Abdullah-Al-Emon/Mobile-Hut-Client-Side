@@ -12,7 +12,10 @@ const Header = () =>
     const handleLogOut = () =>
     {
         logOut()
-            .then(() => { })
+            .then(() =>
+            {
+                localStorage.removeItem('accessToken')
+            })
             .catch(err => console.error(err))
     }
 
@@ -33,7 +36,7 @@ const Header = () =>
             </Navbar.Brand>
             <div className="flex md:order-2">
                 <div>
-                    <label  htmlFor="dashboard-drawer" className="btn btn-ghost lg:hidden">
+                    <label htmlFor="dashboard-drawer" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                 </div>
@@ -68,17 +71,14 @@ const Header = () =>
                 >
                     <Link to='/blogs'>Blogs</Link>
                 </div>
-                {
-                    user?.uid &&
-                    <div htmlFor="dashboard-drawer" className='block py-2 pr-4 pl-3 md:p-0 border-b border-gray-100 
+                <div htmlFor="dashboard-drawer" className='block py-2 pr-4 pl-3 md:p-0 border-b border-gray-100 
                      text-gray-700 hover:bg-gray-50 dark:border-gray-700 
                      dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white 
                      md:border-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent
                       md:dark:hover:text-white'
-                    >
-                        <Link to='/dashboard'>Dashboard</Link>
-                    </div>
-                }
+                >
+                    <Link to='/dashboard'>Dashboard</Link>
+                </div>
                 <div>
                     {
                         isSeller && <>
