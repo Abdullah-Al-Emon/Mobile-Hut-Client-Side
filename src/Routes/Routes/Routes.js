@@ -8,6 +8,7 @@ import AllSeller from "../../Pages/Dashboard/Admin/AllSeller";
 import ReportedItem from "../../Pages/Dashboard/Admin/ReportedItem";
 import MyOrder from "../../Pages/Dashboard/Buyers/MyOrder";
 import MyWishlist from "../../Pages/Dashboard/Buyers/MyWishlist";
+import Payment from "../../Pages/Dashboard/Buyers/Payment";
 import MyBuyers from "../../Pages/Dashboard/Seller/MyBuyers";
 import MyProduct from "../../Pages/Dashboard/Seller/MyProduct";
 import Home from "../../Pages/Home/Home/Home";
@@ -89,6 +90,11 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/reportedItem',
                 element: <AdminRoute><ReportedItem></ReportedItem></AdminRoute>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                element:<Payment/>,
+                loader: ({params}) => fetch(`https://mobilehut-server-side.vercel.app/bookings/${params.id}`)
             },
         ]
     }

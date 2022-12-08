@@ -1,13 +1,12 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
-import PaymentModal from './PaymentModal';
 
 const MyOrder = () =>
 {
 
     const [orders, setOrders] = useState([])
-    const [modal, setModal] = useState(null)
     const { user } = useContext(AuthContext);
 
     const fetchData = () =>
@@ -53,10 +52,13 @@ const MyOrder = () =>
                                     <td>{order.productName} <br />
                                     </td>
                                     <td className='text-green-600 font-semibold'>{order.resalePrice}</td>
-                                    <td>{
-                                        order.resalePrice && !order.paid &&
-                                        <label htmlFor="my-modal-4" onClick={() => setModal(order)} className='btn btn-primary btn-sm'>Pay</label>
-                                    }
+                                    <td>
+                                        {
+                                            order.resalePrice && !order.paid &&
+                                            <Link to={`/dashboard/payment/${order._id}`}>
+                                            <button className='btn btn-primary btn-sm'>Pay</button>
+                                        </Link>
+                                        }
                                         {
                                             order.resalePrice && order.paid && <span className='text-primary font-semibold'>Paid</span>
                                         }</td>
@@ -66,13 +68,6 @@ const MyOrder = () =>
                     </tbody>
                 </table>
             </div>
-            {
-                modal &&
-                <PaymentModal
-                    modal={modal}
-                    setModal={setModal}
-                ></PaymentModal>
-            }
         </div>
     );
 };

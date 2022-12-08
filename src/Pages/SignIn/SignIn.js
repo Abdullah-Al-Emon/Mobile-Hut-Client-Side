@@ -8,7 +8,7 @@ import useToken from '../../hooks/useToken';
 const SignIn = () =>
 {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { signIn, googleSignIn } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     const [logInError, setLogInError] = useState('')
     const [loginUserEmail, setLoginUserEmail] = useState('');
 
@@ -39,19 +39,19 @@ const SignIn = () =>
             })
     }
 
-    const handleGoogleSignIn = () =>
-    {
-        googleSignIn()
-            .then(result =>
-            {
-                const user = result.user;
-                setLoginUserEmail(user?.email)
-            })
-            .catch(err => {
-                setLogInError(err)
-                console.error(err)
-            })
-    }
+    // const handleGoogleSignIn = () =>
+    // {
+    //     googleSignIn()
+    //         .then(result =>
+    //         {
+    //             const user = result.user;
+    //             setLoginUserEmail(user?.email)
+    //         })
+    //         .catch(err => {
+    //             setLogInError(err)
+    //             console.error(err)
+    //         })
+    // }
     return (
         <div className='md:h-[650px] h-[550px] flex justify-center items-center'
         style={{
@@ -90,8 +90,8 @@ const SignIn = () =>
                 <input className='btn btn-primary w-full' value='Log In' type="submit" />
             </form>
             <p className='text-sm text-center my-4 font-semibold'>New to Mobile hut? <Link className='text-secondary' to='/signUp'>Create new account</Link></p>
-            <div className="divider">OR</div>
-            <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+            {/* <div className="divider">OR</div>
+            <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button> */}
         </div>
     </div>
     );

@@ -10,8 +10,10 @@ const BookingModal = ({ booking, setBooking }) =>
         productName,
         resalePrice,
         image,
-        sellerEmail
+        sellerEmail,
+        _id
     } = booking;
+    console.log(booking)
 
     const handleBooking = event =>
     {
@@ -32,7 +34,8 @@ const BookingModal = ({ booking, setBooking }) =>
             sellerEmail,
             name,
             phone,
-            metingLocation
+            metingLocation,
+            productId: _id
         }
 
         fetch(`https://mobilehut-server-side.vercel.app/booking`, {
