@@ -94,7 +94,7 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element:<Payment/>,
-                loader: ({params}) => fetch(`https://mobilehut-server-side.vercel.app/bookings/${params.id}`)
+                loader: ({params}) => fetch(`https://mobilehut-server-side.vercel.app/booking/${params.id}`)
             },
         ]
     }

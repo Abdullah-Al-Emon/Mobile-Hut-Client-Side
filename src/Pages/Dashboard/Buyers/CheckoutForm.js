@@ -84,7 +84,8 @@ const CheckoutForm = ({ booking }) =>
                 buyerEmail,
                 sellerEmail,
                 bookingId: _id,
-                productId
+                productId,
+                productName
             }
             fetch('https://mobilehut-server-side.vercel.app/payments', {
                 method: 'POST',
