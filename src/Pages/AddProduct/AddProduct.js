@@ -85,9 +85,9 @@ const AddProduct = () =>
                                 <select className="select input-bordered w-full"
                                     {...register("categoryId", { required: "Product Category is required" })}
                                 >
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+                                    <option value="1">Realme</option>
+                                    <option value="2">Redmi</option>
+                                    <option value="3">One Plus</option>
                                 </select>
                                 {errors.categoryId && <p className="text-red-700">{errors.categoryId?.message}</p>}
                             </div>
