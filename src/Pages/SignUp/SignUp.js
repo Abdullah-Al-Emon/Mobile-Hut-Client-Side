@@ -21,14 +21,14 @@ const SignUp = () =>
 
     const handleSignUp = data =>
     {
-        console.log(data)
+        // console.log(data)
         setSignUpError('')
         createUser(data.email, data.password)
             .then(result =>
             {
                 const user = result.user;
                 console.log(user)
-                toast('User Created Successfully')
+                toast.success('User Created Successfully')
                 const userInfo = {
                     displayName: data.name
                 }
@@ -73,6 +73,7 @@ const SignUp = () =>
                 console.log(user)
                 saveUser(user.displayName, user.email, 'Buyer')
                 setCreatedUserEmail(user?.email)
+                toast.success('Google Sign In Complete')
             })
             .catch(err => {
                 setSignUpError(err)

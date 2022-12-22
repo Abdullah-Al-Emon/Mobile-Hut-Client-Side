@@ -3,6 +3,7 @@ import About from '../About/About';
 import Advertise from '../Advertise/Advertise';
 import Banner from '../Banner/Banner';
 import Categories from '../Categories/Categories';
+import ExtraSection from '../ExtraSection/ExtraSection';
 
 const Home = () => {
     return (
@@ -10,6 +11,7 @@ const Home = () => {
             <Banner/>
             <Advertise/>
             <Categories/>
+            <ExtraSection/>
             <About/>
         </div>
     );

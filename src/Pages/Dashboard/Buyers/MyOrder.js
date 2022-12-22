@@ -2,12 +2,13 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
+import Loading from '../../Shared/Loading/Loading';
 
 const MyOrder = () =>
 {
 
     const [orders, setOrders] = useState([])
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
 
     const fetchData = () =>
     {
@@ -22,6 +23,10 @@ const MyOrder = () =>
     {
         fetchData()
     },)
+
+    if(loading){
+        return <Loading/>
+    }
 
     return (
         <div className='mx-3'>

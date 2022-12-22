@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img1 from '../../assets/image/Banner/img5.jpg'
 import { AuthContext } from '../../Context/AuthProvider';
@@ -31,6 +32,7 @@ const SignIn = () =>
                 const user = result.user;
                 console.log(user)
                 setLoginUserEmail(data.email)
+                toast.success('Sign In Complete')
             })
             .catch(error =>
             {

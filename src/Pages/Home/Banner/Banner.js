@@ -5,10 +5,13 @@ import img2 from '../../../assets/image/Banner/img2.jpg'
 import img3 from '../../../assets/image/Banner/img3.jpg'
 import img4 from '../../../assets/image/Banner/img4.jpg'
 
+
 const Banner = () =>
 {
+    
+
     return (
-        <div className="h-[70vh]">
+        <div data-aos="fade-in" className="h-[70vh]">
             <Carousel slide={false}>
                 <img
                     src={img1}
@@ -33,6 +36,7 @@ const Banner = () =>
             </Carousel>
         </div>
     );
+
 };
 
 export default Banner;
