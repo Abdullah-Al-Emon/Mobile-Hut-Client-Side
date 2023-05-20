@@ -14,6 +14,7 @@ const AddProduct = () =>
 
     const todayDate = new Date()
     const date = format(todayDate, 'PP');
+    console.log(user.email)
 
     const handleAddProducts = (data) =>
     {

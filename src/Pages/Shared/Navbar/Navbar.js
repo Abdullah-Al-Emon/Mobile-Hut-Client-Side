@@ -10,6 +10,7 @@ import Loading from '../Loading/Loading';
 const Header = () =>
 {
     const { user, logOut, loading } = useContext(AuthContext)
+    // console.log(user?.email)
 
     const handleLogOut = () =>
     {

@@ -13,7 +13,7 @@ import { useQuery } from '@tanstack/react-query';
 const ProductSlider = () =>
 {
 
-    const { data: advertise = [] } = useQuery({
+    const { data: advertise = [], } = useQuery({
         queryKey: ['advertise'],
         queryFn: async () =>
         {
@@ -53,7 +53,7 @@ const ProductSlider = () =>
                 {
                     advertise.map(add =>
                         <SwiperSlide key={add._id}>
-                            <div data-aos="flip-left" className="card md:w-72 bg-base-100 h-80 shadow-xl image-full">
+                            <div data-aos="flip-left" data-aos-duration="1000" className="card md:w-72 bg-base-100 h-80 shadow-xl image-full">
                                 <figure><img src={add.image} alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">{add.productName}</h2>
